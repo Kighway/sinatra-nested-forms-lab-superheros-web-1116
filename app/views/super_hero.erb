@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>supah hiroh</title>
+  </head>
+  <body>
+    <form action="/team" method="post">
 
+      <h1>Create a Team and Heroes!</h1>
+
+      Team Name<input id="team[name]" type="text" name="team[name]">
+      Team Motto<input id="team[motto]" type="text" name="team[motto]">
+
+       <% (1..3).each_with_index do |index| %>
+       <%"member#{index}_name"%>
+        <h2>Hero <%=index%></h2>
+        Hero's Name<input id="member<%="#{index}"%>_name" type="text" name="team[heroes][][name]">
+        Hero's Power<input id="member<%="#{index}"%>_power" type="text" name="team[heroes][][power]">
+        Hero's Biography<input id="member<%="#{index}"%>_bio" type="text" name="team[heroes][][bio]">
+       <% end%>
+
+      <input type="submit" id="submit" value="Submit">
+
+    </form>
+  </body>
+</html>
